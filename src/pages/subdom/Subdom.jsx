@@ -12,7 +12,7 @@ export default function Emailver() {
     setIp(e.target.value);
   }
 
-  let API_URL = `https://subdomains.whoisxmlapi.com/api/v1?apiKey=at_mpgHtw2z1PN1o2ZdlrH8wLvcHho3n&domainName=${ip}`;
+  let API_URL = `https://subdomains.whoisxmlapi.com/api/v1?apiKey=${process.env.REACT_APP_API_KEY}&domainName=${ip}`;
   const handleClick = async () => {
     await fetch(API_URL)
       .then(async (data) => {

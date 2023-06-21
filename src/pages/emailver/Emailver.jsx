@@ -3,16 +3,17 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
+
 export default function Emailver ()  {
 
     const [ip,setIp] = useState('');
     const [info, SetInfo] = useState(null);
-
+    
     const handleChange = (e) =>{
         setIp(e.target.value);
     }
 
-    let API_URL = `https://emailverification.whoisxmlapi.com/api/v2?apiKey=at_mpgHtw2z1PN1o2ZdlrH8wLvcHho3n&emailAddress=${ip}`;
+    let API_URL = `https://emailverification.whoisxmlapi.com/api/v2?apiKey=${process.env.REACT_APP_EMAILVER_API_KEY}&emailAddress=${ip}`;
     const handleClick = async () =>{
         await fetch(API_URL)
             .then( async (data) => {
