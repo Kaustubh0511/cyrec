@@ -25,10 +25,10 @@ export default function Geoloc() {
     let API_URL = '';
     const handleClick = async () =>{
         if(chk(ip)){
-            API_URL = `https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=at_mpgHtw2z1PN1o2ZdlrH8wLvcHho3n&ipAddress=${ip}`;
+            API_URL = `https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${ip}`;
         }
         else{
-            API_URL = `https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=at_mpgHtw2z1PN1o2ZdlrH8wLvcHho3n&domain=${ip}`;
+            API_URL = `https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=${process.env.REACT_APP_API_KEY}&domain=${ip}`;
         }
         await fetch(API_URL)
             .then( async (data) => {
